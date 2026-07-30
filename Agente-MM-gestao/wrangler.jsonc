@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "agente-mm-hermes",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-29",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "ENVIRONMENT": "development",
+    "HERMES_NAME": "Hermes",
+    "ENABLE_CRON_HEARTBEAT": "false"
+  },
+  "triggers": {
+    "crons": ["0 11 * * 1-5"]
+  },
+  "env": {
+    "production": {
+      "name": "agente-mm-hermes-production",
+      "vars": {
+        "ENVIRONMENT": "production",
+        "HERMES_NAME": "Hermes",
+        "ENABLE_CRON_HEARTBEAT": "false"
+      }
+    }
+  }
+}
